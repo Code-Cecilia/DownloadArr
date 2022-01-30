@@ -1,1 +1,1 @@
-python-qbittorrent
+qbittorrent-api
