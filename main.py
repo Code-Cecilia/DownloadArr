@@ -1,3 +1,5 @@
+import sys
+
 import qbittorrentapi
 import json
 from ui import UI
@@ -24,6 +26,7 @@ try:
     torrent_client.auth_log_in()
 except qbittorrentapi.LoginFailed as e:
     print("Failed to connect:", e)
+    sys.exit(1)
 
 ui = UI(torrent_client)
 ui.run()

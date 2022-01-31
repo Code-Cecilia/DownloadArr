@@ -23,7 +23,10 @@ class UI:
         while True:
             choice = self.get_input()
             self.cls()
-            self.input_options[list(self.input_options)[choice - 1]]()
+            try:
+                self.input_options[list(self.input_options)[choice - 1]]()
+            except TypeError:
+                pass
 
     def title_screen(self):
         self.cls()
@@ -84,7 +87,7 @@ class UI:
     def list_torrents(self):
         torrents = self.torrent_client.torrents_info()
         if not torrents:
-            print("\nNo torrents found\n")
+            print("No torrents found\n")
             input("Press any key to continue:")
             self.cls()
             return
@@ -99,7 +102,7 @@ class UI:
     def get_info_for_torrent(self):
         torrents = self.torrent_client.torrents_info()
         if not torrents:
-            print("\nNo torrents found\n")
+            print("No torrents found\n")
             input("Press any key to continue: ")
             self.cls()
             return
@@ -129,7 +132,7 @@ class UI:
     def modify_torrent(self):
         torrents = self.torrent_client.torrents_info()
         if not torrents:
-            print("\nNo torrents found\n")
+            print("No torrents found\n")
             input("Press any key to continue: ")
             self.cls()
             return
